@@ -49,7 +49,7 @@ public struct HexCoordinates
     #region Neighbours
 
     /// <summary>
-    /// Returns true if the passed HexCoordinates object is a neighbour of the current.
+    /// Returns true if the argument HexCoordinates object is a neighbour of the current.
     /// </summary>
     /// <param name="other">The HexCoordinates to check.</param>
     /// <returns>True if <b>other</b> is a neighbour.</returns>
@@ -90,6 +90,13 @@ public struct HexCoordinates
 
     #endregion
 
+    public static int Distance(HexCoordinates a, HexCoordinates b)
+    {
+        return (Math.Abs(a.Q - b.Q)
+              + Math.Abs(a.R - b.R)
+              + Math.Abs(a.Z - b.Z)) / 2;
+    }
+
     public int DistanceTo(HexCoordinates other)
     {
         return (Math.Abs(Q - other.Q)
@@ -105,7 +112,7 @@ public struct HexCoordinates
     public static HexCoordinates operator -(HexCoordinates a, HexCoordinates b)
         => new(a.Q - b.Q, a.R - b.R);
 
-    public override bool Equals([NotNullWhen(true)] object obj)
+    public override bool Equals([NotNullWhen(true)] object? obj)
         => obj is HexCoordinates other && Q == other.Q && R == other.R;
 
     public override int GetHashCode()
