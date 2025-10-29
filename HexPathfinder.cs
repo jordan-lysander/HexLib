@@ -104,9 +104,9 @@ public static class HexPathfinder
 
                     // enqueue the neighbour with its updated cost
                     openSet.Enqueue(neighbourNode, neighbourNode);
-                    }
                 }
             }
+        }
 
         // return empty list if no path is found
         return [];

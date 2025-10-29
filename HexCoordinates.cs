@@ -112,6 +112,12 @@ public struct HexCoordinates
     public static HexCoordinates operator -(HexCoordinates a, HexCoordinates b)
         => new(a.Q - b.Q, a.R - b.R);
 
+    public static bool operator ==(HexCoordinates a, HexCoordinates b)
+        => a.Equals(b);
+
+    public static bool operator !=(HexCoordinates a, HexCoordinates b)
+        => !(a == b);
+
     public override bool Equals([NotNullWhen(true)] object? obj)
         => obj is HexCoordinates other && Q == other.Q && R == other.R;
 
